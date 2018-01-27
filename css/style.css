@@ -406,6 +406,45 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none; }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  padding-left: 4rem;
+  position: relative;
+  cursor: pointer; }
+
+.form__radio-button {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 5px solid #55c57a;
+  position: absolute;
+  top: -.5rem;
+  left: 0; }
+  .form__radio-button::after {
+    content: "";
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color: #55c57a;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
+
 .header {
   position: relative;
   height: 95vh;
