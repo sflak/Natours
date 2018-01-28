@@ -7,6 +7,21 @@
     background-color: rgba($color-black, .9);
     z-index: 5000;
 
+    opacity: 0;
+    visibility: hidden;
+
+    transition: all .3s;
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &:target &__content {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
     &__content {
         background-color: $color-white;
         border-radius: 3px;
@@ -14,10 +29,13 @@
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(.5);
         box-shadow: 0 2rem 4rem rgba($color-black, .8);
         display: table;
         overflow: hidden;
+        opacity: 0;
+        transition: all .4s .2s;
+
     }
     &__left {
         width: 33.3333333%;
@@ -47,5 +65,24 @@
         -webkit-hyphens: auto;
         hyphens: auto;
 
+    }
+    &__close {
+        line-height: 1;
+        
+        &:link,
+        &:visited {
+            color: $color-grey-dark;
+            position: absolute;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all .2s;
+        }
+        &:hover,
+        &:active {
+            color: $color-primary;
+        }
     }
 }
